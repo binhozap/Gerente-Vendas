@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#d4af37">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <title>Fique Bella</title>
+</head>
+<body>
+    <main class="Main">
+      <header class="header-main">
+        <h1>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5Zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0ZM14 14V5H2v9a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1ZM8 7.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+          </svg>
+          Fique Bella
+        </h1>
+        <div class="header-actions">
+          <button id="btn-settings" class="theme-toggle" aria-label="Abrir configurações" title="Configurações">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311a1.464 1.464 0 0 1-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413-1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/></svg>
+          </button>
+          <button id="theme-toggle-btn" class="theme-toggle" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+              <svg id="theme-icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-sun-fill" viewBox="0 0 16 16"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/></svg>
+              <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-moon-fill" viewBox="0 0 16 16"><path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/></svg>
+          </button>
+        </div>
+      </header>
+      <div class="main-content-scroll">
+        <h2>Gerenciamento de Vendas</h2>
+        <div class="container-busca">
+          <label for="input-busca-cliente" class="sr-only">Buscar cliente</label>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>
+          <input type="search" id="input-busca-cliente" placeholder="Buscar cliente...">
+        </div>
+        <div id="vencimentos-summary" class="hidden"></div>
+        <div id="aniversarios-summary" class="hidden"></div> <!-- NEW -->
+        <div class="container-ordenacao">
+          <label>Ordenar por:</label>
+          <div id="sort-method-group" class="sort-method-group">
+              <button type="button" class="sort-method-btn active" data-value="alfabetica">Alfabética</button>
+              <button type="button" class="sort-method-btn" data-value="maior_divida">Maior Dívida</button>
+          </div>
+        </div>
+        <h2 id="total-geral-devido"></h2>
+        <div id="vendas-registradas-lista"></div>
+      </div>
+      <div class="Buttons">
+        <button id="btn-cadastrar">Cliente</button>
+        <button id="btn-vender">Vendas</button>
+        <button id="btn-produtos">Devedores</button>
+      </div>
+      <dialog id="modal-cadastro">
+        <div class="modal-content">
+            <h2>Cadastrar Novo Cliente</h2>
+            <form id="form-cadastro">
+                <label for="input-nome" class="sr-only">Nome do cliente</label>
+                <input type="text" id="input-nome" name="nome" placeholder="Nome do cliente" required autocomplete="off">
+                <label for="input-telefone" class="sr-only">Telefone (opcional)</label>
+                <input type="tel" id="input-telefone" name="telefone" placeholder="Telefone com DDD (opcional)">
+                <div class="form-group">
+                    <label for="input-data-nascimento">Data de Nascimento (opcional)</label>
+                    <input type="date" id="input-data-nascimento" name="dataNascimento" title="Data de Nascimento (opcional)">
+                </div>
+                <label for="input-endereco" class="sr-only">Endereço (opcional)</label>
+                <input type="text" id="input-endereco" name="endereco" placeholder="Endereço (opcional)" autocomplete="street-address">
+                <button type="submit">Adicionar</button>
+            </form>
+            <div class="lista-modal">
+                <!-- Clientes cadastrados aparecerão aqui -->
+            </div>
+            <button id="fechar-modal" class="fechar-modal">Fechar</button>
+        </div>
+      </dialog>
+      <dialog id="modal-vendas">
+        <div class="modal-content">
+            <h2>Registrar Venda</h2>
+            <form id="form-vendas">
+                <!-- NEW: Campo de seleção de cliente com busca -->
+                <div id="custom-select-cliente" class="custom-select-container">
+                    <input type="text" id="select-cliente-venda-input" placeholder="Selecione o cliente" readonly>
+                    <input type="hidden" id="select-cliente-venda-hidden" name="clienteNome">
+                    <div id="custom-select-cliente-list" class="custom-select-list hidden">
+                        <input type="search" id="custom-select-cliente-search" placeholder="Buscar cliente...">
+                        <div id="custom-select-options-container"></div>
+                    </div>
+                </div>
+                <div class="form-group-inline">
+                    <div>
+                        <label for="input-produto-venda" class="sr-only">Nome do produto</label>
+                        <input type="text" id="input-produto-venda" name="produto" placeholder="Nome do produto" required>
+                    </div>
+                    <div>
+                        <label for="input-quantidade-venda" class="sr-only">Quantidade</label>
+                        <input type="number" id="input-quantidade-venda" name="quantidade" placeholder="Qtde *" min="1" max="100" required title="Quantidade Obrigatório">
+                    </div>
+                </div>
+                <label for="input-valor-venda" class="sr-only">Valor Unitário (R$)</label>
+                <input type="tel" id="input-valor-venda" name="valor" placeholder="Valor Unitário (R$)" inputmode="decimal" required>
+                <label for="input-desconto-venda" class="sr-only">Desconto (R$)</label>
+                <input type="tel" id="input-desconto-venda" name="desconto" placeholder="Desconto (opcional)" inputmode="decimal">
+                <fieldset class="payment-method-group">
+                    <legend class="sr-only">Método de Pagamento</legend>
+                    <input type="hidden" id="metodo-pagamento-hidden" name="metodoPagamento" value="a_vista_pago">
+                    <button type="button" class="payment-method-btn active" data-value="a_vista_pago">À Vista (Pago)</button>
+                    <button type="button" class="payment-method-btn" data-value="a_vista_deve">Anotar Dívida</button>
+                    <button type="button" class="payment-method-btn" data-value="parcelado">Parcelado</button>
+                </fieldset>
+                <label for="input-observacao-venda" class="sr-only">Observação (opcional)</label>
+                <textarea id="input-observacao-venda" name="observacao" placeholder="Observação (opcional)..." rows="2"></textarea>
+                <div id="container-data-vencimento" class="hidden">
+                    <label for="select-data-vencimento" class="sr-only">Prazo de pagamento</label>
+                    <select id="select-data-vencimento" name="prazo" title="Prazo de pagamento">
+                        <option value="15" selected>Pagar em 15 dias</option>
+                        <option value="30">Pagar em 30 dias</option>
+                    </select>
+                </div>
+                <fieldset id="container-parcelado-opcoes" class="form-group-inline hidden">
+                    <legend class="sr-only">Opções de Parcelamento</legend>
+                    <label for="input-entrada" class="sr-only">Entrada (R$)</label>
+                    <input type="number" id="input-entrada" name="entrada" placeholder="Entrada (R$)" step="0.01" title="Valor da Entrada">
+                    <label for="input-parcelas" class="sr-only">Número de Parcelas</label>
+                    <input type="number" id="input-parcelas" name="parcelas" placeholder="Nº de Parcelas" min="1" title="Número de Parcelas">
+                </fieldset>
+                <div class="form-actions">
+                    <button type="submit">Registrar</button>
+                    <button type="button" id="btn-limpar-vendas" class="btn-secundario">Limpar</button>
+                </div>
+            </form>
+            <button id="fechar-modal-vendas" class="fechar-modal">Fechar</button>
+            <div id="parcelas-preview" class="hidden"></div> <!-- NEW: Área para prévia das parcelas -->
+        </div>
+      </dialog>
+      <dialog id="modal-relatorio-devedores">
+        <div class="modal-content">
+            <h2>Relatório</h2>
+            <div id="resumo-financeiro-geral" class="resumo-financeiro">
+                <!-- Resumo financeiro será inserido aqui -->
+            </div>
+            <hr style="width:100%; margin: 1em 0; border-color: rgba(255,255,255,0.2);">
+            <div id="relatorio-conteudo">
+                <!-- O conteúdo dos relatórios será inserido aqui pelo JS -->
+            </div>
+            <div class="grafico-container hidden" style="width:100%; max-width:350px; margin: 1.5em 0;">
+                <h3 style="margin-bottom: 0.5em;">Dívidas por Cliente</h3>
+                <canvas id="grafico-devedores-pizza"></canvas>
+            </div>
+            <hr style="width:100%; margin: 1em 0; border-color: rgba(255,255,255,0.2);">
+            <h3>Ações para Cliente Específico</h3>
+            <!-- NEW: Campo de seleção de cliente com busca para relatórios -->
+            <div id="custom-select-report" class="custom-select-container">
+                <input type="text" id="select-cliente-pdf-input" class="custom-select-input" placeholder="Selecione um cliente devedor" readonly>
+                <input type="hidden" id="select-cliente-pdf-hidden" name="clienteNomePdf">
+                <div id="custom-select-report-list" class="custom-select-list hidden">
+                    <input type="search" id="custom-select-report-search" class="custom-select-search" placeholder="Buscar cliente devedor...">
+                    <div id="custom-select-report-options-container" class="custom-select-options-container"></div>
+                </div>
+            </div>
+            <div class="botoes-relatorio">
+                <button id="btn-gerar-pdf">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M5.523 12.424q.21-.124.459-.238a8 8 0 0 1-.45.606c-.28.337-.498.516-.635.572a.27.27 0 0 1-.035.012.28.28 0 0 1-.026-.044c-.056-.11-.054-.216.04-.36.106-.165.319-.354.647-.548m2.455-1.647q-.178.037-.356.078a21 21 0 0 0 .5-1.05 12 12 0 0 0 .51.858q-.326.048-.654.114m-2.455 0q-.33.065-.654.114a12 12 0 0 1 .51-.858 21 21 0 0 1 .5-1.05q-.178.041-.356.078Z"/>
+                        <path fill-rule="evenodd" d="M4 0h5.293A1 1 0 0 1 10 .293L13.707 4a1 1 0 0 1 .293.707V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2m5.5 1.5v2a1 1 0 0 0 1 1h2l-3-3zM4.165 13.668c.09.18.23.343.438.419.207.075.412.07.58-.03.318-.187.502-.56.502-1.018v-.388c0-.474-.158-.847-.436-1.095a1.2 1.2 0 0 0-.62-.37c-.203-.054-.41-.05-.58.03-.318.187-.502.56-.502-1.017v-.388c0-.474-.158-.847-.436-1.095a1.2 1.2 0 0 0-.62-.37c-.203-.054-.41-.05-.58.03-.318.187-.502.56-.502-1.018v-.388c0-.474-.158-.847-.436-1.095a1.2 1.2 0 0 0-.62-.37c-.203-.054-.41-.05-.58.03-.318.187-.502-.56-.502-1.018v-.388c0-.474-.158-.847-.436-1.095a1.2 1.2 0 0 0-.62-.37c-.203-.054-.41-.05-.58.03a.5.5 0 0 1-.42-.03c-.187-.122-.318-.36-.318-.65v-.388c0-.29.131-.528.318-.65a.5.5 0 0 1 .42-.03c.203.054.41.05.58-.03.318-.187.502-.56.502-1.018v-.388c0-.474-.158-.847-.436-1.095a1.2 1.2 0 0 0-.62-.37c-.203-.054-.41-.05-.58.03a.5.5 0 0 1-.42-.03c-.187-.122-.318-.36-.318-.65v-.388c0-.29.131-.528.318-.65a.5.5 0 0 1 .42-.03c.203.054.41.05.58-.03.318-.187.502-.56.502-1.018v-.388c0-.474-.158-.847-.436-1.095a1.2 1.2 0 0 0-.62-.37c-.203-.054-.41-.05-.58.03a.5.5 0 0 1-.42-.03c-.187-.122-.318-.36-.318-.65V8.5c0-.29.131-.528.318-.65a.5.5 0 0 1 .42-.03c.203.054.41.05.58-.03.318-.187.so 502-.56.502-1.018V6.118c0-.474-.158-.847-.436-1.095a1.2 1.2 0 0 0-.62-.37c-.203-.054-.41-.05-.58.03a.5.5 0 0 1-.42-.03c-.187-.122-.318-.36-.318-.65V4.118c0-.29.131-.528.318-.65a.5.5 0 0 1 .42-.03c.203.054.41.05.58-.03.318-.187.502-.56.502-1.018V2.118c0-.474-.158-.847-.436-1.095a1.2 1.2 0 0 0-.62-.37c-.203-.054-.41-.05-.58.03a.5.5 0 0 1-.42-.03c-.187-.122-.318-.36-.318-.65V.118c0-.29.131-.528.318-.65A.5.5 0 0 1 3.5 0h.165z"/>
+                    </svg>
+                    Gerar PDF
+                </button>
+                <button id="btn-enviar-whatsapp-relatorio">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+                    </svg>
+                    Enviar WhatsApp
+                </button>
+                <button id="btn-copiar-relatorio" class="btn-copiar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zM-1 7a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1H-.5A.5.5 0 0 1-1 7z"/></svg>
+                    Copiar Texto
+                </button>
+                <button id="btn-lembrete-vencimentos" class="btn-lembrete">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z"/></svg>
+                    Lembretes
+                </button>
+                <button id="btn-exportar-csv" class="btn-exportar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                    Exportar CSV
+                </button>
+            </div>
+            <hr style="width:100%; margin: 1em 0; border-color: rgba(255,255,255,0.2);">
+            <h3>Backup e Restauração</h3>
+            <div class="botoes-relatorio">
+                <button id="btn-backup-db">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                    Fazer Backup
+                </button>
+                <button id="btn-restore-db">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 1.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 4.293V12.5a.5.5 0 0 0 1 0V4.293l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3z"/></svg>
+                    Restaurar Backup
+                </button>
+            </div>
+            <input type="file" id="input-restore-db" class="hidden" accept=".db,.sqlite">
+            <button id="fechar-modal-relatorio" class="fechar-modal">Fechar</button>
+        </div>
+      </dialog>
+      <dialog id="modal-settings">
+        <div class="modal-content">
+            <h2>Configurações</h2>
+            <form id="form-settings">
+                <div class="form-group">
+                    <label for="template-relatorio">Modelo para Relatório de Pendências</label>
+                    <textarea id="template-relatorio" rows="5"></textarea>
+                    <small>Variáveis disponíveis: <code>{cliente}</code>, <code>{pendencias}</code>, <code>{total}</code></small>
+                </div>
+                <div class="form-group">
+                    <label for="template-lembrete">Modelo para Lembrete de Vencimentos</label>
+                    <textarea id="template-lembrete" rows="5"></textarea>
+                    <small>Variáveis disponíveis: <code>{cliente}</code>, <code>{pendencias}</code></small>
+                </div>
+                <button type="submit">Salvar Configurações</button>
+            </form>
+            <button id="fechar-modal-settings" class="fechar-modal">Fechar</button>
+        </div>
+      </dialog>
+      <!-- NEW: Modal de Detalhes do Cliente -->
+      <dialog id="modal-cliente-detalhes">
+        <div class="modal-content">
+            <div class="cliente-detalhes-header">
+                <h2 id="cliente-detalhes-nome"></h2>
+                <div id="cliente-detalhes-info"></div>
+            </div>
+            <ul id="cliente-detalhes-vendas-lista" class="lista-compras"></ul>
+            <div class="modal-actions">
+                <button id="btn-exportar-cliente" class="btn-exportar">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/><path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/></svg>
+                    Exportar Dados
+                </button>
+                <button id="fechar-modal-cliente-detalhes" class="fechar-modal">Fechar</button>
+            </div>
+        </div>
+      </dialog>
+    </main>
+    <div id="loading-overlay" class="hidden">
+        <div id="spinner"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./sw.js"></script>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>

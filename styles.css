@@ -1,0 +1,1549 @@
+/* ================================= */
+/*      NOVO TEMA & ANIMAÇÕES      */
+/* ================================= */
+:root {
+    --bg-gradient-start: #2c2c2c;
+    --bg-gradient-end: #1a1a1a;
+    --bg-body: #121212;
+    --text-primary: #f0f0f0;
+    --accent-color: #d4af37;
+    --accent-text: #121212;
+    --surface-1: rgba(255, 255, 255, 0.07); /* Fundo de superfícies um pouco mais claro */
+    --surface-2: rgba(255, 255, 255, 0.1);  /* Fundo de inputs e itens de lista mais claro */
+    --surface-3: rgba(10, 10, 10, 0.85);
+    --border-color: rgba(212, 175, 55, 0.2);
+    --border-color-strong: rgba(212, 175, 55, 0.4);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --shadow-accent-color: rgba(212, 175, 55, 0.3);
+    --text-placeholder: rgba(240, 240, 240, 0.5);
+}
+
+.Main.light-theme {
+    --bg-gradient-start: #f4f7f9;
+    --bg-gradient-end: #e9eff3;
+    --bg-body: #f0f2f5;
+    --text-primary: #1c1e21;
+    --accent-color: #0077b6;
+    --accent-text: #ffffff;
+    --surface-1: rgba(0, 0, 0, 0.03);
+    --surface-2: #ffffff;
+    --surface-3: rgba(255, 255, 255, 0.85);
+    --border-color: rgba(0, 0, 0, 0.1);
+    --border-color-strong: rgba(0, 0, 0, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-accent-color: rgba(0, 119, 182, 0.2);
+    --text-placeholder: rgba(28, 30, 33, 0.5);
+}
+
+/* --- GERAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif; /* A fonte já está definida aqui */
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Classe para esconder elementos visualmente, mas mantê-los acessíveis para leitores de tela */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* --- CONTAINER PRINCIPAL --- */
+.Main {
+    max-width: 95vw;
+    min-width: 280px;
+    width: 100%;
+    height: 100vh;
+    padding: 2vw 3vw 0 3vw; /* Ajusta o padding */
+    margin: 0 auto;
+    text-align: center;    
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end), var(--bg-gradient-start));
+    background-size: 200% 200%;
+    position: relative;
+    border-radius: 0; /* Remove o raio para preencher a tela */
+    box-shadow: 0 8px 32px var(--shadow-color);
+    color: var(--text-primary);
+    animation: animated-background 10s ease infinite;
+    transition: background 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content-scroll {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 10vh; /* Espaço para não ficar atrás dos botões fixos */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+.main-content-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+.header-main {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1vw;
+}
+
+.header-main h1 {
+    flex-grow: 1; /* Permite que o h1 ocupe o espaço disponível */
+    text-align: center; /* Centraliza o texto dentro do h1 */
+    margin: 0; /* Remove margens automáticas para evitar conflitos com flex-grow */
+}
+
+.header-actions {
+    display: flex;
+    gap: 0.5em;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.8em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1vw;
+    color: var(--text-primary);    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4em;
+}
+
+h1 svg {
+    fill: var(--accent-color);
+}
+
+h2#total-geral-devido {
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+.container-busca {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura total */
+    margin: 1em auto 1.5em auto;
+}
+
+.container-busca svg {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-placeholder);
+}
+
+#input-busca-cliente {
+    width: 100%;
+    background: var(--surface-2);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color-strong);
+    border-radius: 25px; /* Bordas arredondadas */
+    padding: 0.8em 1em 0.8em 40px; /* Espaço para o ícone */
+    font-size: 1em;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#input-busca-cliente::placeholder {
+    color: var(--text-placeholder);
+}
+
+/* NEW: Container de Ordenação */
+.container-ordenacao {
+    display: flex;
+    justify-content: space-between; /* Alinha o label à esquerda e os botões à direita */
+    align-items: center;
+    gap: 0.5em;
+    margin-bottom: 1em;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 0.5em;
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas pequenas */
+}
+
+.container-ordenacao label {
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+#select-ordenacao {
+    background: var(--surface-2);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color-strong);
+    border-radius: 8px;
+    padding: 0.5em 2em 0.5em 0.8em;
+    font-size: 0.9em;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f0f0f0' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5em center;
+    background-size: 1em;
+    cursor: pointer;
+}
+
+/* NEW: Estilos para seleção de ordenação com botões */
+.sort-method-group {
+    display: flex;
+    border: 1px solid var(--border-color-strong);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.sort-method-btn {
+    background: var(--surface-2);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    font-size: 0.9em;
+}
+
+.sort-method-btn:not(:last-child) {
+    border-right: 1px solid var(--border-color-strong);
+}
+
+.sort-method-btn.active {
+    background: var(--accent-color);
+    color: var(--accent-text);
+    font-weight: 600;
+}
+
+#vendas-registradas-lista {
+    padding: 1em 0.5em;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#vendas-registradas-lista::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* --- BOTÕES PRINCIPAIS (NA BARRA INFERIOR) --- */
+.Buttons {
+    position: fixed; /* Fixa os botões na parte inferior da tela */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px; /* Define uma largura máxima para a barra de botões */
+    background: var(--surface-3);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    border-top: 1px solid var(--border-color);
+    border-radius: 24px 24px 0 0;
+    box-shadow: 0 4px 16px var(--shadow-color);
+    display: flex;
+    justify-content: space-around; /* Melhora a distribuição em telas largas */
+    gap: 1em;
+    padding: 1em;
+    padding-bottom: calc(1em + env(safe-area-inset-bottom)); /* Espaço seguro para iPhones */
+}
+
+#btn-cadastrar, #btn-vender, #btn-produtos {
+    background: var(--accent-color);
+    color: var(--accent-text);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px var(--shadow-accent-color);
+    padding: 0.6em 1em; /* Padding menor */
+    font-size: 1em; /* Fonte menor */
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#btn-cadastrar:hover, #btn-vender:hover, #btn-produtos:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px var(--shadow-accent-color);
+}
+
+.modal-content {
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    border-radius: 16px;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    width: 100%;
+    max-width: 400px;
+    padding: 1.5em;
+    color: var(--text-primary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--border-color);
+    overflow-y: auto; /* Garante a rolagem vertical dentro do modal */
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) transparent;
+}
+.modal-content::-webkit-scrollbar { 
+    
+    display: none;  /* Opcional: esconde a barra de rolagem no Chrome/Safari */
+
+    /* Nova animação de entrada */
+    animation: fadeInScaleUp 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes fadeInScaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* --- ESTILOS DOS ELEMENTOS DENTRO DOS MODAIS --- */
+
+#form-cadastro, #form-vendas, #form-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    margin-top: 1em;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.form-group-inline {
+    display: flex;
+    gap: 0.5em;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que os campos quebrem a linha em telas menores */
+}
+
+.form-group-inline > div:first-child {
+    flex-grow: 1; /* Faz o campo de produto ocupar o espaço restante */
+}
+
+.form-group-inline > div:last-child input[type="number"] {
+    width: 70px; /* Largura menor para campos numéricos em linha */
+    flex-shrink: 0; /* Impede que o campo encolha */
+}
+
+/* Estilo unificado para todos os campos de formulário */
+#form-cadastro input, 
+#form-vendas input, 
+#form-vendas select, 
+#form-vendas textarea,
+#form-settings textarea {
+    background: var(--surface-2);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color-strong);
+    border-radius: 8px;
+    padding: 0.8em 1em;
+    font-size: 1em;
+    width: 100%;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+/* Melhora a visibilidade dos campos de seleção (dropdowns) */
+#form-vendas select {
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f0f0f0' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1em center;
+    background-size: 1em;
+    padding-right: 2.5em; /* Adiciona espaço para a seta */
+}
+.Main.light-theme #select-ordenacao {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%231c1e21' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+.Main.light-theme #form-vendas select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%231c1e21' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+/* NEW: Estilos para o select customizado com busca */
+.custom-select-container {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select-input {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23f0f0f0' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1em center;
+    background-size: 1em;
+}
+
+.light-theme .custom-select-input {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%231c1e21' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E");
+}
+
+.custom-select-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-gradient-start);
+    border: 1px solid var(--border-color-strong);
+    border-radius: 8px;
+    z-index: 1000;
+    max-height: 250px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+.custom-select-search {
+    padding: 0.8em;
+    border: none;
+    border-bottom: 1px solid var(--border-color-strong);
+    background: var(--surface-2);
+    color: var(--text-primary);
+}
+.custom-select-search:focus {
+    outline: none;
+}
+
+.custom-select-options-container {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) transparent;
+}
+
+.custom-select-options-container::-webkit-scrollbar {
+    width: 5px;
+}
+.custom-select-options-container::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 5px;
+}
+
+.custom-select-option {
+    padding: 0.8em 1em;
+    cursor: pointer;
+}
+
+.custom-select-option:hover, .custom-select-option.highlighted {
+    background-color: var(--accent-color);
+    color: var(--accent-text);
+}
+
+.custom-select-option.hidden {
+    display: none;
+}
+
+/* NEW: Estilos para seleção de método de pagamento com botões */
+.payment-method-group {
+    display: flex;
+    width: 100%;
+    gap: 0.5em; /* Espaçamento entre os botões */
+    flex-wrap: wrap;
+}
+
+.payment-method-btn {
+    flex: 1;
+    background: transparent;
+    color: var(--text-placeholder);
+    border: 1px solid var(--border-color-strong);
+    border-radius: 20px; /* Deixa os botões arredondados */
+    padding: 0.6em 0.5em;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.payment-method-btn:hover:not(.active) {
+    background-color: var(--surface-1);
+    color: var(--text-primary);
+}
+
+.payment-method-btn.active {
+    background: var(--accent-color);
+    color: var(--accent-text);
+    font-weight: 600;
+    border-color: var(--accent-color);
+}
+
+/* Remove as setas dos inputs numéricos para um visual mais limpo */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
+#form-vendas textarea, #form-settings textarea {
+    resize: vertical; /* Permite que o usuário redimensione apenas na vertical */
+    min-height: 40px;
+    font-family: 'Courier New', Courier, monospace; /* Fonte monoespaçada para templates */
+}
+
+#form-settings label {
+    font-weight: 500;
+    margin-bottom: 0.3em;
+    text-align: left;
+}
+
+#form-settings small {
+    color: var(--text-placeholder);
+}
+
+#form-cadastro input::placeholder, #form-vendas input::placeholder, #form-vendas textarea::placeholder, #form-settings textarea::placeholder {
+    color: var(--text-placeholder);
+}
+
+/* Efeito de foco para todos os inputs */
+#form-cadastro input:focus, #form-vendas input:focus, #form-vendas select:focus, #form-vendas textarea:focus, #input-busca-cliente:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px var(--shadow-accent-color);
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.8em;
+    width: 100%;
+    margin-top: 0.5em;
+}
+
+.form-actions button {
+    flex: 1;
+}
+
+.btn-secundario {
+    background: var(--surface-2) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color-strong) !important;
+}
+
+#form-cadastro button, #form-vendas button, #form-settings button, .botoes-relatorio button {
+    background: var(--accent-color);
+    color: var(--accent-text);
+    border: none;
+    border-radius: 8px;
+    padding: 0.8em 1.2em;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+#form-cadastro button:hover, #form-vendas button:hover, #form-settings button:hover, .botoes-relatorio button:hover {
+    filter: brightness(1.1);
+}
+
+/* --- BOTÃO COM SPINNER DE CARREGAMENTO --- */
+button.loading {
+    position: relative;
+    color: transparent !important; /* Esconde o texto do botão */
+    pointer-events: none; /* Impede cliques múltiplos */
+}
+
+button.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px; /* Tamanho do spinner */
+    height: 16px; /* Tamanho do spinner */
+    margin-top: -8px; /* Metade da altura */
+    margin-left: -8px; /* Metade da largura */
+    border: 2px solid var(--accent-text);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.botoes-relatorio {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os botões quebrem para a próxima linha */
+    gap: 0.5em;
+    width: 100%;
+    margin-top: 0.5em;
+}
+
+.botoes-relatorio button {
+    flex: 1 1 calc(50% - 0.5em); /* Define que cada botão ocupe quase 50% da largura */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em; /* Espaço entre o ícone e o texto */
+    padding: 0.6em 1em; /* Padding menor para estes botões */
+    font-size: 0.9em; /* Fonte menor */
+}
+
+.fechar-modal {
+    background: none;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    cursor: pointer;
+    font-weight: 500;
+    margin-top: 0.5em;
+    transition: background 0.2s, color 0.2s;
+}
+
+.fechar-modal:hover {
+    background: var(--accent-color);
+    color: var(--accent-text);
+}
+
+#btn-enviar-whatsapp-relatorio {
+    background-color: #25D366; /* Cor do WhatsApp */
+    border-color: #25D366;
+}
+
+.btn-copiar {
+    background-color: #17a2b8; /* Azul informativo */
+    border-color: #17a2b8;
+}
+
+.btn-lembrete {
+    background-color: #fd9e02; /* Laranja para destaque */
+    border-color: #fd9e02;
+}
+
+.btn-exportar {
+    background-color: #6c757d; /* Cinza neutro */
+    border-color: #6c757d;
+}
+
+.lista-modal {
+    width: 100%;
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    flex-shrink: 1; /* Permite que a lista encolha se necessário */
+    max-height: 80vh; /* Aumenta a altura máxima da lista */
+    overflow-y: auto;
+    background: var(--surface-1);
+    padding: 0.5em;
+    border-radius: 8px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.lista-modal::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.cliente-item {
+    background: var(--surface-2);
+    border-radius: 10px;
+    padding: 0.7em 1em;
+    color: var(--text-primary);
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cliente-item button {
+    background: #e63946; /* Vermelho moderno */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 2px 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 1em;
+    transition: background 0.2s;
+}
+
+.cliente-item button:hover {
+    background: #b22c38; /* Vermelho mais escuro */
+}
+
+/* --- ANIMAÇÕES DE ADIÇÃO/REMOÇÃO DE CLIENTE --- */
+@keyframes fadeInSlideDownCard {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-cliente.novo {
+  animation: fadeInSlideDownCard 0.5s ease-out forwards;
+}
+
+@keyframes fadeOutSlideUpCard {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-width: 0;
+  }
+}
+
+.card-cliente.removendo {
+  animation: fadeOutSlideUpCard 0.4s ease-out forwards;
+}
+
+.cliente-item.removendo {
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* --- CARDS DE CLIENTE NA TELA PRINCIPAL --- */
+.card-cliente {
+    background: var(--surface-1);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1em;
+    margin-bottom: 1em;
+    text-align: left;
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out, max-height 0.4s ease-out, margin-bottom 0.4s ease-out, padding 0.4s ease-out;
+    overflow: hidden; /* Necessário para a animação de altura */
+}
+
+.card-cliente.filtrado-fora {
+    opacity: 0;
+    transform: scale(0.95);
+    max-height: 0 !important; /* !important para sobrepor o estilo de expandir */
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-width: 0;
+    overflow: hidden;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5em; /* Adiciona um espaço entre os itens do cabeçalho */
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5em;
+    margin-bottom: 0.7em;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    user-select: none; /* Standard */
+}
+.card-header > div:first-child { flex-grow: 1; } /* Permite que o nome do cliente cresça */
+
+.card-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.btn-whatsapp-card {
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.btn-whatsapp-card:hover {
+    transform: scale(1.1);
+}
+
+.input-edicao-nome {
+    background: var(--surface-2);
+    border: 1px solid var(--accent-color);
+    border-radius: 5px;
+    color: var(--text-primary);
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 2px 5px;
+    margin: 0;
+    width: 90%;
+}
+
+.btn-excluir-card {
+    background: #e63946;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.btn-excluir-card:hover {
+    background: #b22c38; /* Vermelho mais escuro */
+}
+
+.card-footer {
+    margin-top: 1em;
+    padding-top: 0.5em;
+    border-top: 1px solid var(--border-color);
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: none; /* Começa escondido */
+    transition: max-height 0.4s ease-out, opacity 0.3s ease-out, margin-top 0.4s ease-out, padding-top 0.4s ease-out;
+    overflow: hidden;
+}
+
+.card-cliente.devedor .card-footer {
+    display: block;
+}
+
+.lista-compras {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+    overflow: hidden;
+}
+
+/* Oculta a lista de compras na tela principal, pois agora existe o modal de detalhes */
+#vendas-registradas-lista .card-cliente .lista-compras {
+    display: none;
+}
+
+.lista-compras li {
+    background: var(--surface-2);
+    padding: 0.5em 0.8em;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.venda-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto; /* Produto, Data, Valor, Ações */
+    align-items: center;
+    gap: 0.8em;
+    width: 100%;
+}
+
+.venda-produto {
+    font-weight: 500;
+}
+
+.venda-data, .venda-valor {
+    font-size: 0.9em;
+    color: var(--text-placeholder);
+    text-align: right;
+}
+
+.venda-valor {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.venda-status {
+    grid-column: 1 / -1; /* Ocupa todas as colunas */
+    margin-top: 0.3em;
+}
+
+.venda-acoes {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-toggle-detalhes {
+    background: none;
+    border: 1px solid var(--border-color-strong);
+    color: var(--text-primary);
+    border-radius: 6px;
+    padding: 0.2em 0.5em;
+    font-size: 0.8em;
+    cursor: pointer;
+    margin-right: 0.5em;
+}
+
+.btn-toggle-detalhes:hover {
+    background: var(--surface-1);
+}
+
+.venda-detalhes-extra {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background: var(--surface-1);
+    border-radius: 6px;
+    padding: 0 0.8em;
+    margin-top: 0.5em;
+}
+
+.venda-detalhes-extra.expanded {
+    max-height: 100px;
+    padding: 0.8em;
+}
+
+.venda-detalhe {
+    font-size: 0.85em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.venda-detalhe span:first-child {
+    color: var(--text-placeholder);
+}
+
+.observacao-venda {
+    font-size: 0.85em;
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    border-top: 1px dashed var(--border-color);
+    color: var(--text-placeholder);
+}
+
+.observacao-venda strong {
+    color: var(--text-primary);
+}
+
+.lista-parcelas {
+    margin-top: 0.5em;
+    padding-top: 0.5em;
+    border-top: 1px dashed var(--border-color);
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 500px) {
+    .venda-grid {
+        grid-template-columns: 1fr auto; /* Produto | Valor */
+        grid-template-areas: 
+            "produto valor"
+            "data acoes";
+    }
+    .venda-produto { grid-area: produto; }
+    .venda-valor { grid-area: valor; }
+    .venda-data { grid-area: data; text-align: left; }
+    .venda-acoes { grid-area: acoes; }
+}
+
+/* --- ANIMAÇÃO PARA NOVOS ITENS --- */
+@keyframes fadeInSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+    background-color: var(--accent-color); /* Destaque inicial */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    background-color: var(--surface-2); /* Cor final */
+  }
+}
+
+.resumo-financeiro {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background: var(--surface-1);
+    padding: 0.8em;
+    border-radius: 12px;
+    margin-top: 1em;
+}
+
+.resumo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2em;
+}
+
+/* --- OUTROS ELEMENTOS --- */
+#vencimentos-summary {
+    margin-bottom: 1em;
+    padding: 0.8em;
+    background: var(--surface-1);
+    border-radius: 12px;
+}
+
+#vencimentos-summary {
+    margin-bottom: 1em;
+    padding: 0.8em;
+    background: var(--surface-1);
+    border-radius: 12px;
+}
+
+/* Removido: #vencimentos-summary::-webkit-scrollbar */
+
+.vencimentos-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.vencimentos-header h3 {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.toggle-vencimentos {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.toggle-vencimentos:hover {
+    color: var(--accent-color);
+}
+
+.toggle-vencimentos svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.toggle-vencimentos .icon-chevron-up {
+    display: none; /* Initially hidden */
+}
+
+.toggle-vencimentos[aria-expanded="true"] .icon-chevron-down {
+    display: none;
+}
+
+.toggle-vencimentos[aria-expanded="true"] .icon-chevron-up {
+    display: block;
+}
+
+.vencimentos-content {
+    max-height: 0; /* Initially collapsed */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-top: 0; /* No padding when collapsed */
+    padding-bottom: 0; /* No padding when collapsed */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE and Edge */
+}
+
+.vencimentos-content::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.vencimentos-content.expanded {
+    max-height: 200px; /* Max height when expanded */
+    overflow-y: auto;
+    padding-top: 0.5em; /* Add padding when expanded */
+    padding-bottom: 0.5em; /* Add padding when expanded */
+}
+
+.vencimentos-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vencimentos-content li {
+    padding: 0.3em 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.vencimentos-content li:last-child {
+    border-bottom: none;
+}
+
+/* NEW: Aniversários Summary */
+#aniversarios-summary {
+    margin-bottom: 1em;
+    padding: 0.8em;
+    background: var(--surface-1);
+    border-radius: 12px;
+}
+
+.aniversarios-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.aniversarios-header h3 {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.toggle-aniversarios {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.toggle-aniversarios:hover {
+    color: var(--accent-color);
+}
+
+.toggle-aniversarios svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.toggle-aniversarios .icon-chevron-up {
+    display: none;
+}
+
+.toggle-aniversarios[aria-expanded="true"] .icon-chevron-down {
+    display: none;
+}
+
+.toggle-aniversarios[aria-expanded="true"] .icon-chevron-up {
+    display: block;
+}
+
+.aniversarios-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-top: 0;
+    padding-bottom: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.aniversarios-content::-webkit-scrollbar {
+    display: none;
+}
+
+.aniversarios-content.expanded {
+    max-height: 200px; /* Max height when expanded */
+    overflow-y: auto;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.aniversarios-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.aniversarios-content li {
+    padding: 0.3em 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.aniversarios-content li:last-child {
+    border-bottom: none;
+}
+
+.resumo-financeiro {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1em;
+}
+
+.resumo-mes-item h4 {
+    font-size: 1em;
+    font-weight: 500;
+    margin-bottom: 0.5em;
+    color: var(--accent-color);
+}
+
+.resumo-detalhe {
+    font-size: 0.9em;
+    margin-bottom: 0.3em;
+}
+
+.resumo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3em;
+    font-size: 0.9em;
+    color: var(--text-placeholder);
+}
+
+/* NEW: Modal de Detalhes do Cliente */
+#modal-cliente-detalhes .modal-content {
+    max-width: 500px;
+    padding: 1.5em;
+}
+
+.cliente-detalhes-header {
+    text-align: center;
+    margin-bottom: 1em;
+    padding-bottom: 0.8em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cliente-detalhes-header h2 {
+    font-size: 1.8em;
+    color: var(--accent-color);
+    margin-bottom: 0.2em;
+}
+
+.cliente-detalhes-info {
+    font-size: 0.9em;
+    color: var(--text-primary);
+    margin-bottom: 1em;
+}
+
+.cliente-detalhes-info p {
+    margin: 0.2em 0;
+}
+
+.cliente-detalhes-info a {
+    color: var(--accent-color); /* Usa a cor de destaque do tema, que é amarela no modo escuro */
+    text-decoration: none;
+}
+
+.cliente-detalhes-info a:hover {
+    text-decoration: underline;
+}
+
+#cliente-detalhes-vendas-lista {
+    max-height: 50vh; /* Altura máxima para a lista de vendas no modal */
+    overflow-y: auto;
+    padding-right: 0.5em; /* Espaço para a scrollbar */
+    margin-bottom: 1em;
+    border-radius: 8px;
+    background: var(--surface-1);
+    padding: 0.5em;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) transparent;
+}
+
+/* Mantém a ocultação da scrollbar para o modal de detalhes também */
+#cliente-detalhes-vendas-lista::-webkit-scrollbar {
+    display: none;
+}
+
+/* NEW: Estilos para a prévia das parcelas no modal de vendas */
+#parcelas-preview {
+    width: 100%;
+    margin-top: 1em;
+    padding: 0.8em;
+    background: var(--surface-1);
+    border-radius: 8px;
+    text-align: left;
+    max-height: 150px; /* Limita a altura da prévia */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-color) transparent;
+}
+
+#parcelas-preview::-webkit-scrollbar {
+    display: none;
+}
+
+.info-preview {
+    font-size: 0.9em;
+    color: var(--text-primary);
+    margin-bottom: 0.5em;
+}
+
+.parcelas-preview-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.85em;
+    color: var(--text-primary);
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.8em;
+    width: 100%;
+    justify-content: flex-end; /* Alinha os botões à direita */
+    margin-top: 1.5em;
+}
+
+.status.a-prazo {
+    background-color: #ffc107; /* Amarelo para pendente */
+    color: #333;
+}
+
+.status.vencido, .parcela-item.vencido > label {
+    background-color: #e63946 !important; /* Vermelho para vencido */
+    color: #ffffff !important; /* !important para sobrepor outras regras de label */
+    border-radius: 4px;
+    padding: 2px 5px;
+}
+
+.parcela-item.vencido {
+    background-color: rgba(230, 57, 70, 0.15) !important; /* Fundo do <li> mais sutil */
+}
+
+.status.pago {
+    background-color: #28a745;
+    color: white;
+}
+
+#btn-produtos.ativo {
+    background: linear-gradient(90deg, #ffc107 0%, #ff9800 100%);
+    color: var(--accent-text);
+    box-shadow: 0 4px 16px rgba(255, 193, 7, 0.25);
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 1024px) {
+    .Main {
+        max-width: 95vw;
+        min-width: 0;        
+        padding: 4vw 2vw 0 2vw; /* Remove padding inferior desnecessário */
+        margin: 0 auto;
+        border-radius: 0;
+    }
+    .main-content-scroll {
+        /* Garante que o conteúdo não fique atrás dos botões */
+        padding-bottom: 15vh;
+    }
+    .Buttons {
+        width: 100%;
+        justify-content: space-evenly; /* Distribuição uniforme no mobile */
+        bottom: 0;
+        border-radius: 18px 18px 0 0;
+        padding: 3vw 0;
+    }
+    #btn-cadastrar, #btn-vender, #btn-produtos {
+        font-size: 0.9em; /* Fonte um pouco menor para caber melhor */
+        padding: 0.8em 0.4em;
+        flex: 1; /* Faz os botões ocuparem espaço igual */
+    }
+    .modal-content {
+        width: 95vw; /* Ocupa mais espaço na tela */
+        max-height: 90vh; /* Garante que não ultrapasse a altura */
+        padding: 1em;
+    }
+    /* Garante a rolagem no modal de relatórios em telas pequenas */
+    #modal-relatorio-devedores .modal-content {
+        max-height: 85vh;
+        overflow-y: auto;
+    }
+    .container-ordenacao {
+        justify-content: center; /* Centraliza em telas pequenas */
+    }
+}
+
+/* Funcionalidade de Minimizar Card */
+.card-cliente:not(.minimizado) .lista-compras,
+.card-cliente:not(.minimizado) .card-footer {
+    max-height: 1000px; /* Um valor alto para garantir que todo o conteúdo caiba */
+}
+
+.card-cliente.minimizado .lista-compras, .card-cliente.minimizado .card-footer {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.lista-compras li > span:first-of-type {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Garante que o span ocupe toda a largura */
+}
+
+.lista-compras .btn-excluir-compra {
+    background: #e63946;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-left: 0.5em;
+    flex-shrink: 0; /* Impede que o botão encolha */
+    transition: background 0.2s;
+}
+
+.lista-compras .btn-excluir-compra:hover {
+    background: #b22c38; /* Vermelho mais escuro */
+}
+
+/* --- ANIMAÇÃO DE FUNDO --- */
+@keyframes animated-background {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* --- MENSAGEM DE LISTA VAZIA --- */
+.mensagem-lista-vazia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8em;
+    padding: 2em;
+    color: var(--text-placeholder);
+    font-size: 1.1em;
+    text-align: center;
+    margin-top: 2em;
+}
+
+/* --- BOTÃO DE TEMA --- */
+.theme-toggle {
+    background: var(--surface-2);
+    border: 1px solid var(--border-color-strong);
+    color: var(--accent-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+    background: var(--surface-1);
+}
+
+.theme-toggle svg {
+    transition: transform 0.3s ease-out;
+}
+
+#theme-icon-moon { display: none; }
+
+.light-theme #theme-icon-sun { display: none; }
+.light-theme #theme-icon-moon { display: block; }
+
+dialog {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    padding: 0;
+    margin: auto; /* Centraliza o modal na viewport */
+    background: transparent;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+/* --- SPINNER DE CARREGAMENTO --- */
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Garante que fique acima de tudo */
+    transition: opacity 0.3s ease-in-out;
+}
+
+#loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none; /* Permite cliques através do overlay quando escondido */
+}
+
+#spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid var(--accent-color); /* Cor do spinner */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+}
+
+/* --- AJUSTES PARA DESKTOP --- */
+@media (min-width: 1025px) {
+    .modal-content {
+        max-width: 500px;
+    }
+
+    #modal-relatorio-devedores .modal-content {
+        max-width: 600px;
+    }
+}
