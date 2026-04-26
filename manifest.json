@@ -2,7 +2,7 @@
   "name": "Fique Bella",
   "short_name": "FiqueBella",
   "description": "Gerenciador de vendas para o salão Fique Bella.",
-  "start_url": "./FiqueBella.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#1a1a1a",
   "theme_color": "#d4af37",
