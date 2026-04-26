@@ -3,7 +3,7 @@ let db;
 // ==================================================
 // HELPER FUNCTIONS FOR INDEXEDDB
 // ==================================================
-const idbName = "FiqueBellaAppDB";
+const idbName = "LojaAppDB";
 const storeName = "sqliteDBStore";
 const dbKey = "dbFile";
 
